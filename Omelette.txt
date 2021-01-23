@@ -16,7 +16,7 @@
 /**
 * Créer un outil (couteau) pour découper les ingrédients achetés
 * propriétés : nom et action.
-* action a comme valeur l'état "coupé" (qui sera mis aux légumes lorsqu'ils seront coupés avec le méthode de "personne".)
+* action a comme valeur l'état "coupé" (qui sera mis aux légumes lorsqu'ils seront coupés avec la méthode de "personne".)
 */
 
 /**
@@ -24,13 +24,17 @@
  * propriétés : nom, etats ( entier,coupé, moulu), prix
  */
 // Créer un lieu "epicerie" qui a comme propriétés :
-// nom, personnes = [], paniers (un tableau d'objets "panier" avec une propriété "type" égal à panier et le contenu du panier, égal à un tableau vide),
+// nom, personnes = [], paniers (un tableau d'objets "panier" avec une propriété "type" égal à panier et 
+le contenu du panier, égal à un tableau vide),
 // Les "ingrédients" créés juste au dessus contenus dans un tableau.
 /**
- * Créer un poele avec un tableau comme contenu. Et avec une méthode cuir() qui, après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
+ * Créer une poele avec un tableau comme contenu. Et avec une méthode cuir() qui,
+  après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
  */
 // Créer un bol avec un tableau comme contenu
-// ajouter une méthode melanger(nomMelange) qui va créer un nouvel objet "newMelange" avec comme nom la variable nomMelange passé en paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu par [l'obj newMelange]
+// ajouter une méthode melanger(nomMelange) qui va créer un 
+nouvel objet "newMelange" avec comme nom la variable nomMelange passé en 
+paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu par [l'obj newMelange]
 
 
 /**** DEBUT DE L'OMELETTE ****/
