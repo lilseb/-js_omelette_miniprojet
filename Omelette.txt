@@ -83,7 +83,7 @@ paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu pa
 
 // Afficher un message avec le nouveau mélange
 
-// vider le contenu du bol dans la poele. Il ne doit plus rien avoir dans le bol et y avoir juste l'omelette pas cuite.
+// vider le contenu du bol dans la poele. Il ne doit plus rien avoir dans le bol 
 
 // Cuire l'omelette avec la méthode de la poele 
 

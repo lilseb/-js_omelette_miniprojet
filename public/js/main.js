@@ -36,12 +36,18 @@ let personne = {
     payerArticles(){
         personne.mainDroite[0].contenu.forEach(element => {
             personne.argent -= element.prix // ou personne.argent = personne.argent - element.prix
-            
+
             console.log(`Après avoir payé ${element.nom} il me reste ${personne.argent}`);
         });
     },
-    couper() {
-
+    // change l'état d'un ingrédient à coupé seulement si l'état est entier
+    couper(ingrédient) {
+        if (ingrédient.état == "entier") {
+            ingrédient.état = "coupé";
+            console.log (`${ingrédient.nom} a changé d'état et est maintenant ${ingrédient.état}`);
+        } else {
+            console.log (`${ingrédient.nom} est déjà à l'état ${ingrédient.état}`);
+        }
     },
 }
 //////////////////////////////////////////////////////////
@@ -102,8 +108,11 @@ let couteau={
 
 let poele={
     contenu: [],
-    cuir(){
-        setTimeout(()=> {this.contenu.push("cuit")}, 4000)
+    cuire(){
+        setTimeout(()=> {
+            this.contenu[0].état = "cuit",
+            console.log(`Mon ${poele.contenu[0].nom} est maintenant à l'état ${poele.contenu[0].état}`);
+    }, 4000)
     }
 }
 
@@ -112,11 +121,13 @@ let bol={
     contenu: [],
     // va créer un nouvel objet "nouveauMélange" avec comme nom la variable nomMelange passé en paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu par [l'obj nouveauMélange]
     mélanger(nomMélange){
+        // crée un nouvel objet avec deux propriété. Le nom reçoit le paramètre reçu en entrée (input).
         const nouveauMélange = {
             nom: nomMélange,
             état: "pas cuit"
         }
-        this.contenu.push(nouveauMélange)
+        this.contenu = [];
+        this.contenu.push(nouveauMélange);
     }
 
 
@@ -154,6 +165,55 @@ for (let i = 0; i < épicerie.ingrédients.length; i++) {
 
 personne.payerArticles();
 
+personne.seDeplacer(maison);
+
+// mettre ingrédients du panier de ma main droite dans mon bol
+for (let i = 0; i <personne.mainDroite[0].contenu.length; i++) {
+    bol.contenu.push(personne.mainDroite[0].contenu[i]);
+    console.log(`${bol.contenu[i].nom} à été ajouté dans mon bol`);
+}
+personne.mainDroite[0].contenu = [];
+console.log(`Le contenu du panier de ma main droite a ${personne.mainDroite[0].contenu.length} élément(s) `);
+
+personne.seDeplacer(épicerie);
 
 
+console.log(`Nombre de panier(s) dans l'épicerie avant: ${épicerie.paniers.length} `);
+épicerie.paniers.push(personne.mainDroite[0]);
+
+console.log(`Nombre de panier(s) dans l'épicerie après: ${épicerie.paniers.length} `);
+personne.mainDroite.pop(épicerie.paniers[0]);
+
+console.log(`Ma main contient ${personne.mainDroite.length} élément`);
+
+personne.seDeplacer(maison);
+
+
+for (let i = 0 ; i < bol.contenu.length ; i++) {
+    personne.couper(bol.contenu[i]);
+}
+/**
+ * Je peux aussi faire une boucle avec le foreach
+bol.contenu.forEach(element => {
+    personne.couper(element);
+});
+ */
+
+ // Mélange le contenu de mon bol et crée un nouveau mélange appelé 'omelette'. La méthode vide le contenu de mon bol et rajoute ce nouveau mélange.
+bol.mélanger("omelette");
+console.log(`Mon bol contient une ${bol.contenu[0].nom} qui a l'état: ${bol.contenu[0].état}`);
+console.log(`Mon bol contient ${bol.contenu.length} élément(s)`);
+
+// vide le mélange qui se trouve dans le contenu de mon bol et le met dans ma poele
+
+poele.contenu.push(bol.contenu[0]);
+console.log(`${poele.contenu[0].nom} à été ajouté dans ma poele`);
+console.log(`Ma poele contient ${poele.contenu.length} élément(s)`);
+
+//
+bol.contenu = [];
+console.log(`Mon bol contient ${bol.contenu.length} élément(s)`);
+
+// utilise la méthode cuire pour cuire mon omelette et affiche le nouvel état de l'omette
+poele.cuire();
 
