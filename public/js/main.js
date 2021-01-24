@@ -192,12 +192,11 @@ personne.seDeplacer(maison);
 for (let i = 0 ; i < bol.contenu.length ; i++) {
     personne.couper(bol.contenu[i]);
 }
-/**
- * Je peux aussi faire une boucle avec le foreach
-bol.contenu.forEach(element => {
-    personne.couper(element);
-});
- */
+
+// Je peux aussi faire une boucle avec le foreach
+// bol.contenu.forEach(element => {
+//     personne.couper(element);
+// });
 
  // Mélange le contenu de mon bol et crée un nouveau mélange appelé 'omelette'. La méthode vide le contenu de mon bol et rajoute ce nouveau mélange.
 bol.mélanger("omelette");
